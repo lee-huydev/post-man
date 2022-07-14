@@ -1,6 +1,6 @@
 const express = require('express');
 const usersRouter = express.Router();
-const method = require('../until/help')
+const method = require('../utils/index')
 const users = [
     {
        id: 1,

@@ -1,6 +1,6 @@
 const express = require('express');
 const mangaRouter = express.Router();
-const method = require('../until/help')
+const method = require('../utils/index')
 const manga = [
    {
       id: 1,
