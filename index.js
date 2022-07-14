@@ -1,7 +1,7 @@
 const express = require('express')  
 const app = express()
-const mangaRouter = require('./router/mangeRouter')
 const usersRouter = require('./router/usersRouter')
+const mangaRouter = require('./router/mangeRouter')
 const port = 5000
 
 app.use(express.json())

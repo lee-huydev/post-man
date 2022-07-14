@@ -1,31 +1,29 @@
 const method = {
-   data: [],
-   get: (req, res) => res.send(method.data),
-   post: (req, res) => {
+   get: (data) => (req, res) => res.send(data),
+   post: (data) => (req, res) => {
       const newData = {
-         id: method.data[method.data.length -1].id + 1,
+         id: data[data.length - 1].id + 1,
          name: req.body.name,
       };
-      method.data.push(newData);
-      res.send(method.data);
+      data.push(newData);
+      res.send(data);
    },
-   put: (req, res) => {
-      const newData = method.data.map((item) => {
-         if (item.id == req.body.id) {
-            return {
-               ...item,
-               name: req.body.name,
-            };
-         }
-         return item;
-      });
-      method.data = newData;
-      res.send(method.data);
+   put: (data) => (req, res) => {
+      const itemUpdate = data.filter((item) => item.id === req.body.id);
+      data.forEach(
+         (e, i) =>
+            e.id === itemUpdate[0].id &&
+            (data[i] = { ...itemUpdate[0], name: req.body.name })
+      );
+      res.send(data);
    },
-   delete: (req, res) => {
-      const newData = method.data.filter((item) => item.id !== req.body.id);
-      method.data = newData
-      res.send(method.data)
+   delete: (data) => (req, res) => {
+      const itemDelete = data.filter((item) => item.id === req.body.id);
+      data.forEach(
+         (element, index) =>
+            element.id === itemDelete[0].id && data.splice(index, 1)
+      );
+      res.send(data);
    },
 };
 

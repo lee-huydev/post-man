@@ -16,9 +16,9 @@ const users = [
     },
  ];
 
-method.data = users
-usersRouter.get('/', method.get)
-usersRouter.post('/', method.post)
-usersRouter.put('/', method.put)
-usersRouter.delete('/', method.delete)
+
+usersRouter.get('/', method.get(users))
+usersRouter.post('/', method.post(users))
+usersRouter.put('/', method.put(users))
+usersRouter.delete('/', method.delete(users))
 module.exports = usersRouter

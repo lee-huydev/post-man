@@ -15,9 +15,8 @@ const manga = [
       name: 'Pikachu',
    },
 ];
-method.data = manga
-mangaRouter.get('/', method.get)
-mangaRouter.post('/', method.post)
-mangaRouter.put('/', method.put)
-mangaRouter.delete('/', method.delete)
+mangaRouter.get('/', method.get(manga))
+mangaRouter.post('/', method.post(manga))
+mangaRouter.put('/', method.put(manga))
+mangaRouter.delete('/', method.delete(manga))
 module.exports = mangaRouter
